@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'server',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -77,8 +78,12 @@ WSGI_APPLICATION = 'server.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'djongo',
+        'NAME': 'matchersdb',
+        'ENFORCE_SCHEMA': False,
+        'CLIENT': {
+            'host': "mongodb+srv://maayanmas4:maayan@matchersdb.wtqfaby.mongodb.net/?retryWrites=true&w=majority"
+        }
     }
 }
 
